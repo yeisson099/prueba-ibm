@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row mt-5" ng-show="hiden">
+    <div class="col-4 mx-auto">
+
+      <h3>Registro de datos</h3>
+      <form [formGroup]="encrypForm" (ngSubmit)="send(encrypForm.value)" >
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" formControlName="nombre" class="form-control" placeholder="Nombre" >
+        </div>
+        <div class="form-group" >
+          <label for="cedula">Número de documento</label>
+          <input id="cedula" formControlName="cedula" type="text"  class="form-control" placeholder="cedula" (focus)="focusFunction(encrypForm.value)" (focusout)="focusOutFunction(encrypForm.value)" >
+        </div>
+        <div class="form-group d-none">
+          <label for="oculto">documento Cifrado</label>
+          <input id="oculto" formControlName="oculto" type="text" class="form-control" placeholder="Edad">
+        </div>
+        <button [disabled]="!encrypForm.valid" type="submit" class="btn btn-success ">encriptar</button>
+        <button  (click)="decript()" class="btn btn-success d-none ">desencriptar</button>
+      </form>
+    </div>
+  </div>
+</div>
